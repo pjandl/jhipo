@@ -1,3 +1,13 @@
+/*
+ * File:		jhipovm.java
+ * Classname:	jhipovm
+ * 
+ * Description:	command line tool to invoke JHIPOVM to execute assembly program.
+ * 
+ * Author:		Peter Jandl Junior
+ * Date:		2015-04-30			
+ * 
+ */
 import jandl.aoc.jhipo.JHIPOVM;
 import jandl.aoc.jhipo.Processor;
 import jandl.aoc.jhipo.Tools;
