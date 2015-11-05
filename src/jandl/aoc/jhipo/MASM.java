@@ -69,11 +69,13 @@ public class MASM {
 		st = new StreamTokenizer(new BufferedReader(new FileReader(fileName)));
 		st.eolIsSignificant(true);
 		st.ordinaryChars(14, 31);	// chars abaixo de espaço
-		st.ordinaryChars(33, 47);   // ! até /
+		st.ordinaryChars(33, 35);   // !, ", #
+		st.ordinaryChars(37, 47);   // % até /
 		st.ordinaryChars(58, 64);	// : até @
 		st.ordinaryChars(91, 94);	// [ até ^
 		st.ordinaryChar(96);		// ` 
 		st.ordinaryChars(123,127);	// { até ~
+		st.wordChars(36, 36);		// $ (cifrão) pode ser usado em identificadores
 		st.wordChars(95, 95);		// _ (underline) pode ser usado em identificadores
 		st.commentChar(';');
 		// Processa arquivo de entrada em lista de tokens
@@ -165,6 +167,10 @@ public class MASM {
 			}
 		}
 		pw.close();
+		if (VERBOSE) {
+			System.out.printf("[MASM] %d bytes generated%s", byteCount,
+					Tools.NL);
+		}
 	}
 
 	private void getToken() {
